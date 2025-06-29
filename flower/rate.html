@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Final Surprise 🎉</title>
+  <style>
+    body {
+      background: url('https://www.bing.com/th/id/OGC.cba6e6f6756391fe871f52a96ea31895?r=0&o=7&pid=1.7&rm=3&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2ffc%2fe2%2f52%2ffce2523cef65546c2bbe9788a181bfa8.gif&ehk=c5%2bhv71tEdjzJNq99XMtCjQV2TD2wxy8RdcGcY1e8Ig%3d') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #000000;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 3rem;
+    }
+
+    .rating-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .rating-buttons button {
+      font-size: 1.5rem;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    #gif-container {
+      margin-top: 30px;
+    }
+
+    #gif-container img {
+      max-width: 80%;
+      border-radius: 20px;
+    }
+
+    .nav-button {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>I like u &lt;3</h1>
+  <p>Rate your experience !!🌟</p>
+
+  <button onclick="window.location.href='index.html'" class="nav-button">← Back to Start</button>
+
+  <div class="rating-buttons">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>10</button>
+  </div>
+
+  <div id="gif-container"></div>
+
+  <script>
+    const buttons = document.querySelectorAll('.rating-buttons button');
+    const gifContainer = document.getElementById('gif-container');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const rating = button.textContent;
+        gifContainer.innerHTML = '';
+
+        let img = document.createElement('img');
+
+        if (rating === '1' || rating === '2') {
+          img.src = 'https://c.tenor.com/K61LBZu_g70AAAAM/cry-dog.gif';
+          img.alt = 'Crying dog gif';
+        } else if (rating === '3' || rating === '4' || rating === '5') {
+          img.src = 'https://www.bing.com/th/id/OGC.8cbdd931234be26e85cade40a9c84902?r=0&o=7&pid=1.7&rm=3&rurl=https%3a%2f%2fc.tenor.com%2fXPIWvG3UDBkAAAAC%2fdog-sad.gif&ehk=w94e0TrqTFfosQpyC5TU%2biZfWN%2f35I%2fJfz9gfX%2frOdA%3d';
+          img.alt = 'Sad dog gif';
+        } else if (rating === '6' || rating === '7') {
+          img.src = 'https://i.pinimg.com/736x/24/77/f8/2477f81edb39e93a574ebb4d497fb048.jpg';
+          img.alt = 'Flower image';
+        } else if (rating === '8' || rating === '9') {
+          img.src = 'https://i.pinimg.com/736x/ce/74/c8/ce74c87f85176bbba01a28b6d3f72d4a.jpg';
+          img.alt = 'Cute dog image';
+        } else if (rating === '10') {
+          img.src = 'https://i.pinimg.com/736x/54/2f/02/542f02d4f6bc9094f3fe00f6bdb0fed7.jpg';
+          img.alt = 'Happy dog image';
+        }
+
+        gifContainer.appendChild(img);
+      });
+    });
+  </script>
+</body>
+</html>

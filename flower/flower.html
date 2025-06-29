@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>You Made It!</title>
+  <style>
+    body {
+      background-color: #FFFFFF; /* white */
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #4B0082;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .header {
+      margin-top: 30px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 2rem;
+      margin: 10px 0 30px;
+    }
+
+    .flower {
+      position: absolute;
+      top: -50px;
+      font-size: 2rem;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ILY &lt;3</h1>
+    <p>Flowers for u pookie 🌻✨!</p>
+    <img src="https://i.pinimg.com/736x/76/1e/60/761e601a066c539d1aa676d2afe20f69.jpg" alt="Cute Flower Gift" style="max-width: 25%; height: auto; border-radius: 20px; margin-top: 20px;" />
+  <button onclick="document.getElementById('bg-music').play()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.2rem; background-color: #d8bfd8; border: none; border-radius: 10px; cursor: pointer;">Play Music 🎶</button>
+    <audio id="bg-music" src="hello honey bunny.mp3"></audio>
+  <button onclick="window.location.href='music1.html'" style="margin-top: 30px; padding: 10px 25px; font-size: 1.2rem; background-color: #cfa9f5; color: white; border: none; border-radius: 10px; cursor: pointer;">Next ➡️</button>
+  </div>
+
+  <script>
+    const flowerTypes = ['🌸', '🌹', '🌷', '🌼', '🌻'];
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.textContent = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(flower);
+
+      setTimeout(() => flower.remove(), 6000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>

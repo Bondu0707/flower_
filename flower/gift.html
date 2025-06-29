@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ily &lt;3</title>
+  <style>
+    body {
+      background-color: #FFB6C1; /* baby pink */
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      position: relative;
+    }
+
+    h1 {
+      color: #000000; /* black */
+      font-size: 3rem;
+      margin-top: 40px;
+    }
+
+    p {
+      color: #000000;
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gift-box {
+      font-size: 3rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gift-box.opened {
+      content: "📦";
+    }
+
+    .gift-box:hover {
+      transform: scale(1.2);
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      font-size: 2rem;
+      color: #ff1493;
+      text-align: center;
+      display: none;
+      z-index: 1000;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 8px 20px;
+      font-size: 1rem;
+      background-color: #ff1493;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .next-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      padding: 10px 25px;
+      background-color: #6a0dad; /* purple */
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ily &lt;3</h1>
+  <p>Click on the gift to open! 🎁</p>
+
+  <div class="gift-grid">
+    <div class="gift-box" onclick="showMessage(0, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(1, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(2, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(3, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(4, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(5, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(6, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(7, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(8, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(9, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(10, this)">🎁</div>
+    <div class="gift-box" onclick="showMessage(11, this)">🎁</div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div id="popup-message"></div>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+  </div>
+
+  <button class="next-btn" onclick="window.location.href='flower.html'">Next ➡️</button>
+
+  <audio id="pop-sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3" preload="auto"></audio>
+
+  <script>
+    const messages = [
+      "YOU ARE SUCHA CUTIE!!❤️",
+      "KEEP SMILING! 😊",
+      "LOTS OF KISSES AND HUGS! 🫂😚",
+      "DANCE MORE! 💃🕺🪩",
+      "UR EYES ,,THEY PRETTYYYYY! 👀✨",
+      "YOU MAKE ME HAPPY! ❤️",
+      "I WISH U STAYED CLOSE ! 😭😭",
+      "I LOVE HOW U MAKE LAME N CUTE JOKES🧚🏾‍♂️!",
+      "NEVER GIVE UP ! 🤗",
+      "STAND UP FOR URSELF , I'M SOO PROUD OF U ! 😊",
+      "I J LOVE EVRYTHING BT YA! 🧚🏾‍♂️😎",
+      "ANDDDDD HAPPY FREAKING BIRTHDAY! ❤️"
+    ];
+
+    function showMessage(index, el) {
+      const popup = document.getElementById("popup");
+      const messageDiv = document.getElementById("popup-message");
+      const sound = document.getElementById("pop-sound");
+      messageDiv.textContent = messages[index];
+      popup.style.display = "block";
+      el.textContent = "📦";
+      el.classList.add("opened");
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>

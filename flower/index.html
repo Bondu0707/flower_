@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I Like U 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFDAB9;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: pink;
+      font-size: 4rem;
+      margin-top: 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .heart, .message-box {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .heart {
+      color: #ff69b4;
+    }
+
+    .message-box {
+      background-color: white;
+      color: #ff1493;
+      padding: 5px 10px;
+      border-radius: 15px;
+      border: 2px solid #ff69b4;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .static-box {
+      background-color: white;
+      color: #ff1493;
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 15px;
+      border: 2px solid #ff69b4;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .next-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .gift-reveal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 3px dashed #ff1493;
+      padding: 30px;
+      border-radius: 20px;
+      font-size: 1.5rem;
+      color: #ff1493;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      display: none;
+      z-index: 999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>I Like U 💖</h1>
+
+  <img src="https://s3.amazonaws.com/barkpost-assets/50+GIFs/19.gif" alt="Cute Dog" style="width:500px; max-width:95%; border-radius:20px; margin-top: 10px;" />
+
+  <div class="static-box" onclick="revealGift()">Open gift 🎁</div>
+
+  <div class="gift-reveal" id="giftBox">🎉Happy birthday SURYAAAAA!!!!!!💌</div>
+
+  <button class="next-button" onclick="window.location.href='gift.html'">Next ➡️</button>
+
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    function createMessageBox() {
+      const box = document.createElement("div");
+      box.classList.add("message-box");
+      box.textContent = "You're mine 🤗";
+      box.style.left = Math.random() * 100 + "vw";
+      box.style.animationDuration = 3 + Math.random() * 2 + "s";
+      document.body.appendChild(box);
+
+      setTimeout(() => {
+        box.remove();
+      }, 5000);
+    }
+
+    function revealGift() {
+      const gift = document.getElementById("giftBox");
+      gift.style.display = "block";
+      setTimeout(() => {
+        gift.style.display = "none";
+      }, 4000);
+    }
+
+    setInterval(createHeart, 300);
+    setInterval(createMessageBox, 1200);
+  </script>
+</body>
+</html>
